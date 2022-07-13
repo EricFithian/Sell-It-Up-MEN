@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs')%>
+    <h1>Review Show Page</h1>
+    <p>Product: <%=review.product.name%></p>
+
+    <a href="/products/<%=review.product._id%>">Find more information about  <%=review.product.name%></a>
+</body>
+</html>

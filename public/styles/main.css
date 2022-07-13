@@ -1,0 +1,11 @@
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+.show-image{
+    max-width: 80vw;
+}
+
+.card-image{
+    max-width: 300px;
+}

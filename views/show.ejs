@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs', { pageName: oneProduct.name }) %>
+<body>
+    <%- include('partials/nav.ejs')%>
+    <h1>Show Page</h1>
+    <p><%= message %></p>
+    <!-- product object referenced by oneProduct -->
+    <h2><%= oneProduct.name %></h2>
+    <small><%= oneProduct.price %></small>
+    <img class="show-image" src="<%=oneProduct.image%>" alt="<%=oneProduct.name %>"/>
+    <div>
+        <a href="/products/<%= oneProduct._id %>/edit">Edit <%= oneProduct.name %></a>
+    </div>
+
+    <section>
+        <h2>Product Reviews</h2>
+        <div>
+            <h3>Create a review:</h3>
+            <!-- form here -->
+            <form method="POST" action="/reviews">
+                <input name="rating" type="number"/>
+                <input name="content" type="text" />
+                <input type="hidden" name="product" value="<%=oneProduct.id%>"/>
+                <input type="submit" value="Share your thoughts..."/>
+            </form>
+        </div>
+        <% console.log("id", oneProduct.id) %>
+        <% console.log("_id", oneProduct._id) %>
+        <% for(let i=0;i<reviews.length;i++){ %>
+            <div>
+                <h3>Rating: <%=reviews[i].rating %></h3>
+                <p><%=reviews[i].content %></p>
+                <form action="/reviews/ <%=reviews[i]._id%>?_method=DELETE" method="POST">
+                <input type="submit" value="delete review" />
+                </form>
+            </div>
+        <%}%>
+    </section>
+</body>
+</html>

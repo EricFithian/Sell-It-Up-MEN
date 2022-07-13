@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <h1>New Product</h1>
+        <form method="POST" action="/products">
+            <!-- method => POST - attach the data to post body rather than in the url query string(GET request) -->
+            <!-- action => destination for the post req -->
+            <div>
+                <label for="name"> Product Name: </label>
+                <input id="name" name="name" type="text" />
+            </div>
+            <div>
+                <label for="price"> Product Price: </label>
+                <input id="price" name="price" type="number" />
+            </div>
+            <div>
+                <label for="image"> Product Image(url): </label>
+                <input id="image" name="image" type="text" />
+            </div>
+            <input type="submit" value="Create new product">
+        </form>
+    </body>
+
+</html>

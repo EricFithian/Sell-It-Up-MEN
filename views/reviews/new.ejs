@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <h1>New Review Page</h1>
+        <form action="/reviews" method="POST">
+            <label>
+                Rating (Number)
+                <input type="number"  name="rating"/>
+            </label></br>
+            <label>
+                Your Review (String)
+                <input type="string" name="content"/>
+            </label><br/>
+            <label>
+                Related Product
+                <select name="product">
+                    <% for (let i = 0;i<products.length;i++){%>
+                        <option value="<%=products[i]._id%>"><%=products[i].name%> </option>
+                        <!-- option will provide a dropdown selection -->
+                        <!-- between tags is content that shows in the dropdown -->
+                        <!-- value attribute - stores the object  -->
+                        <!-- value populates the 'product' field in req.body  -->
+                    <%}%>
+                    <!-- get all products -->
+                    <!-- iterate over all products and create options for each product -->
+                    <!-- display some information about products (name) -->
+                    <!-- set the value for the option to the id of the product  -->
+                </select>
+            </label><br/>
+            <input type="submit" value="create review"/>
+        </form>
+
+      
+    </body>
+
+</html>

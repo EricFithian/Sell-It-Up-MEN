@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div>
+        <a href="/"> Home </a> 
+        <span> | </span>
+        <a href="/products">Products Index</a>
+        <a href="/products/new">Create New Product</a>
+    </div>
+    <div class="navbar-menu navbar-end">
+        <h2>user: <% user %></h2>
+        
+        <% if (user.username) { %>
+            <p class="navbar-item"><%= user.username %></p>
+        <% } %>
+        <!-- routes -->
+        <% if (typeof routes) { %> <% routes.forEach((route) => { %>
+            <a class="navbar-item" href="<%= route.href %>"> <%= route.title %> </a>
+        <% }) %> <% } %>
+    </div>
+</nav>

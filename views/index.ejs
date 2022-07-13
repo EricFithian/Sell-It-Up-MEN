@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head.ejs',{ pageName :  "Products Home" }) %>
+
+<body>
+
+    <%- include('partials/nav.ejs')%>
+
+    <section>
+        <div>
+            <h2 class="title">All Products</h2>
+        </div>
+    </section>
+
+    <main class="container">
+        <div>
+            <div>
+                <% for(let idx=0; idx < products.length; idx++){ %>
+                    <% const product=products[idx] %>
+                        <div>
+                            <img class="card-image" src="<%= product.image %>" alt="Placeholder image" />
+                            <div class>
+                                <h3><a href="/products/<%= product._id %>"><%= product.name %></a></h3>
+                            <p>$<%= product.price %>
+                            <!-- add a delete form here  -->
+                            <div>
+                                <form method="POST" action="/products/<%= product._id %>?_method=DELETE">            <!-- "/products/0?_method=DELETE" -->
+                                    <input type="submit" value="Delete Product"/>
+                                </form>
+                            </div>
+                        </p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
